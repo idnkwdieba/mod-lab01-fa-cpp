@@ -54,7 +54,6 @@ unsigned int faStr1(const char* str) {
         }
     }
     
-
     return wordCount;
 }
 
@@ -152,7 +151,7 @@ unsigned int faStr3(const char* str) {
     }
 
     if (wordCount != 0) {
-        averageLength = (double)totalLength / wordCount;
+        averageLength = static_cast<float>(totalLength) / wordCount;
     }
 
     return (unsigned int)(averageLength + 0.5);
