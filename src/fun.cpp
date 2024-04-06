@@ -1,6 +1,8 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
 
+#include <string>
+
 unsigned int faStr1(const char* str) {
     std::string inputString = std::string(str);
     std::string word;
