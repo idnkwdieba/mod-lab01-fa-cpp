@@ -1,8 +1,9 @@
 // Copyright 2022 UNN-IASR
+#include "fun.h"
 #include <string>
 
-unsigned int faStr1(const char* str) {
-    std::string inputString = std::string(str);
+unsigned int faStr1(const char* input) {
+    std::string inputString = std::string(input);
     std::string word;
     int wordCount = 0;
     bool isValid = false;
@@ -35,8 +36,8 @@ unsigned int faStr1(const char* str) {
     return wordCount;
 }
 
-unsigned int faStr1(const char* str) {
-    std::string inputString = std::string(str);
+unsigned int faStr1(const char* input) {
+    std::string inputString = std::string(input);
     std::string word;
     int wordCount = 0;
     int wordLength = 0;
@@ -88,8 +89,8 @@ unsigned int faStr1(const char* str) {
     return wordCount;
 }
 
-unsigned int faStr3(const char* str) {
-    std::string inputString = std::string(str);
+unsigned int faStr3(const char* input) {
+    std::string inputString = std::string(input);
     std::string word;
     int wordCount = 0;
     int wordLength = 0;
