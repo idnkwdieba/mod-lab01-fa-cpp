@@ -1,43 +1,9 @@
 // Copyright 2022 UNN-IASR
 #include "fun.h"
-#include <string>
+#include <iostream>
 
-unsigned int faStr1(const char* input) {
-    std::string inputString = std::string(input);
-    std::string word;
-    int wordCount = 0;
-    bool isValid = false;
-
-    int end = inputString.find(' ');
-
-    while (end != -1) {
-        isValid = true;
-
-        word = inputString.substr(0, end);
-        inputString.erase(0, end + 1);
-        end = inputString.find(' ');
-
-        if (word.length() == 0) {
-            continue;
-        }
-
-        for (char symbol : word) {
-            if (std::isdigit(symbol)) {
-                isValid = false;
-                continue;
-            }
-        }
-
-        if (isValid) {
-            wordCount++;
-        }
-    }
-
-    return wordCount;
-}
-
-unsigned int faStr1(const char* input) {
-    std::string inputString = std::string(input);
+unsigned int faStr1(const char* str) {
+    std::string inputString = std::string(str);
     std::string word;
     int wordCount = 0;
     int wordLength = 0;
@@ -57,7 +23,8 @@ unsigned int faStr1(const char* input) {
             continue;
         }
 
-        for (char symbol : word) {
+        for (char symbol : word)
+        {
             if (std::isdigit(symbol)) {
                 isValid = false;
                 continue;
@@ -74,10 +41,75 @@ unsigned int faStr1(const char* input) {
     if (wordLength != 0) {
         bool isValid = true;
 
-        for (char symbol : inputString) {
+        for (char symbol : inputString)
+        {
             if (std::isdigit(symbol)) {
                 isValid = false;
                 continue;
+            }
+        }
+
+        if (isValid) {
+            wordCount++;
+        }
+    }
+    
+
+    return wordCount;
+}
+
+unsigned int faStr2(const char* str) {
+    std::string inputString = std::string(str);
+    std::string word;
+    int wordCount = 0;
+    int wordLength = 0;
+    bool isValid = false;
+
+    int end = inputString.find(' ');
+
+    while (end != -1) {
+        isValid = true;
+
+        word = inputString.substr(0, end);
+        inputString.erase(0, end + 1);
+        end = inputString.find(' ');
+        wordLength = word.length();
+
+        if (wordLength == 0) {
+            continue;
+        }
+
+        if (!std::isupper(word[0])) {
+            continue;
+        }
+
+        for (int index = 1; index < wordLength; index++) {
+            if (!std::islower(word[index])) {
+                isValid = false;
+                continue;
+            }
+        }
+
+        if (isValid) {
+            wordCount++;
+        }
+    }
+
+    wordLength = inputString.length();
+
+    if (wordLength != 0) {
+        isValid = true;
+
+        if (!std::isupper(inputString[0])) {
+            isValid = false;
+        }
+
+        if (isValid) {
+            for (int index = 1; index < wordLength; index++) {
+                if (!std::islower(inputString[index])) {
+                    isValid = false;
+                    continue;
+                }
             }
         }
 
@@ -89,13 +121,13 @@ unsigned int faStr1(const char* input) {
     return wordCount;
 }
 
-unsigned int faStr3(const char* input) {
-    std::string inputString = std::string(input);
+unsigned int faStr3(const char* str) {
+    std::string inputString = std::string(str);
     std::string word;
     int wordCount = 0;
     int wordLength = 0;
     int totalLength = 0;
-    int averageLength = 0;
+    double averageLength = 0;
 
     int end = inputString.find(' ');
 
@@ -120,8 +152,8 @@ unsigned int faStr3(const char* input) {
     }
 
     if (wordCount != 0) {
-        averageLength = totalLength / wordCount;
+        averageLength = (double)totalLength / wordCount;
     }
 
-    return averageLength;
+    return (unsigned int)(averageLength + 0.5);
 }
