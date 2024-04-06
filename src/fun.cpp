@@ -23,8 +23,7 @@ unsigned int faStr1(const char* str) {
             continue;
         }
 
-        for (char symbol : word)
-        {
+        for (char symbol : word) {
             if (std::isdigit(symbol)) {
                 isValid = false;
                 continue;
@@ -41,8 +40,7 @@ unsigned int faStr1(const char* str) {
     if (wordLength != 0) {
         bool isValid = true;
 
-        for (char symbol : inputString)
-        {
+        for (char symbol : inputString) {
             if (std::isdigit(symbol)) {
                 isValid = false;
                 continue;
@@ -53,7 +51,6 @@ unsigned int faStr1(const char* str) {
             wordCount++;
         }
     }
-    
     return wordCount;
 }
 
